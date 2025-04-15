@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-key */
 import OfferCard from './../../offer-card/offer-card';
+// import {Link} from 'react-router-dom';
 
 type MainProps = {
   OfferCount: number;
