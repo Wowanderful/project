@@ -1,4 +1,7 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
+
+import type { Offer } from '../../types/types';
+
 import MainPage from '../pages/main-page/main-page';
 import FavoritesPage from '../pages/favorites/favorites';
 import LoginPage from '../pages/login/login';
@@ -14,6 +17,10 @@ type PrivateRouteProps = {
   children: JSX.Element;
 }
 
+type AppProps = {
+  offers: Offer[];
+}
+
 const PrivateRoute = (props: PrivateRouteProps): JSX.Element => {
   const { authorizationStatus, children } = props;
 
@@ -24,15 +31,11 @@ const PrivateRoute = (props: PrivateRouteProps): JSX.Element => {
   );
 };
 
-type AppProps = {
-  OfferCount: number;
-}
-
-function App ({ OfferCount }: AppProps): JSX.Element {
+function App ({ offers }: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<MainPage OfferCount={OfferCount} />}/>
+        <Route index element={<MainPage offers={offers} />}/>
         <Route path={AppRoute.Login} element={<LoginPage />} />
         <Route path={AppRoute.Favorites} element={
           <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>

@@ -10,3 +10,9 @@ export enum AppRoute {
   Favorites = '/favorites',
   Property = '/offer',
 }
+
+const STARS_COUNT = 5;
+const MAX_PERCENT_STARS_WIDTH = 100;
+
+export {STARS_COUNT, MAX_PERCENT_STARS_WIDTH};
+
