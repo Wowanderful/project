@@ -5,6 +5,7 @@ import { AppRoute, MAX_PERCENT_STARS_WIDTH, STARS_COUNT } from '../../const';
 type CardProps = Offer & {
   onMouseMove: (id: number) => void;
   onMouseLeave: () => void;
+  place?: 'cities' | 'favorites';
 };
 
 function Card ({
@@ -16,6 +17,7 @@ function Card ({
   isFavorite,
   previewImage,
   type,
+  place = 'cities',
   onMouseMove,
   onMouseLeave
 }: CardProps): JSX.Element {
@@ -26,7 +28,7 @@ function Card ({
 
   return (
     <article
-      className="cities__place-card place-card"
+      className={`${place}__card place-card`}
       onMouseMove={handleMouseMove}
       onMouseLeave={onMouseLeave}
     >
@@ -35,9 +37,9 @@ function Card ({
           <span>Premium</span>
         </div>
       )}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${place}__image-wrapper place-card__image-wrapper`}>
         <a href="#">
-          <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image" />
+          <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image" / >
         </a>
       </div>
       <div className="place-card__info">
