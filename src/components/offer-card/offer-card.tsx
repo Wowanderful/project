@@ -1,6 +1,7 @@
 import type { Offer } from '../../types/types';
 
 import { AppRoute, MAX_PERCENT_STARS_WIDTH, STARS_COUNT } from '../../const';
+import { Link } from 'react-router-dom';
 
 type CardProps = Offer & {
   onMouseMove: (id: number) => void;
@@ -68,7 +69,8 @@ function Card ({
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href={`${AppRoute.Property}/${id}`}>{title}</a>
+          <Link to={`${AppRoute.Property}/${id}`}>{title}
+          </Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
